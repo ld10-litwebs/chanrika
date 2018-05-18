@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>投稿画面</title>
+  <link rel="stylesheet" href="/assets/css/jugyou.css">
+</head>
+
+<header>
+  <div class="search">
+      <form action="/src" method="post">
+          <input type="search" name="search" placeholder="検索"></input>
+      </form>
+  </div>
+  <a href="/" class="top">トップへ</a>
+  <a href="/post" class="head_post">投稿する</a>
+</header>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script type="text/javascript">
+    $(function(){
+        var lnamedata =[
+            <% @all_lessons.each do |lesson| %>
+            '<%= lesson.lesson_name %>',
+            <% end %>
+            ];
+        $('#lesson_name').autocomplete({
+            source: lnamedata
+        });
+    });
+    $(function(){
+        var tnamedata =[
+            <% @all_lessons.each do |lesson| %>
+            '<%= lesson.teacher_name %>',
+            <% end %>
+            ];
+        $('#teacher_name').autocomplete({
+            source: tnamedata
+        });
+    });
+</script>
+
+<body>
+  
+    <div class="post_top">
+        <h1>投稿</h1>
+    </div>
+    <div class="post">
+    <form action="/create" method="post">
+      <ul>
+        <li class="plesson_name">
+            <label for="lesson_name" class="txt">授業名(必須)</label>
+            <input type="text" name="lesson_name" id="lesson_name" required>
+        </li>
+        <li class="pfield">
+            <label class="txt">科目区分</label>
+            <select name="field" id="field">
+                <% @fields.each do |field| %>
+                <option value="<%= field.id %>"><%= field.name %></option>
+                <% end %>
+            </select>
+        </li>
+        <li class="pteacher_name">
+            <label for="teacher_name" class="txt">教員名(必須)</label>
+            <input type="text" name="teacher_name" id="teacher_name" required>
+        </li>
+        <li class="pdetail">
+            <label for="detail" class="txt">コメント</label>
+            <textarea placeholder="詳細を記入してください" name="detail" id="detail"></textarea>
+        </li>
+        <li class="pattendance">
+            <label class="txt">出席</label>
+            <label for="on"><input type="radio" name="attendance" value="出席あり" id="on" required>あり</label>
+            <label for="off"><input type="radio" name="attendance" value="出席なし" id="off">なし</label>
+        </li>
+        <li class="ptestorreport">
+            <label for="testorreport" class="txt">テスト/レポート</label>
+            <label for="test"><input type="radio" name="testorreport" value="テストあり" id="test" required>テストあり</label>
+            <label for="report"><input type="radio" name="testorreport" value="レポートあり" id="report">レポートあり</label>
+            <label for="other"><input type="radio" name="testorreport" value="その他" id="other">その他</label>
+        </li>
+        <li class="pscore">
+            <label class="txt">得点しやすさ</label>
+            <label for="score1"><input type="radio" name="score" value="1" id="score1" required>1</label>
+            <label for="score2"><input type="radio" name="score" value="2" id="score2">2</label>
+            <label for="score3"><input type="radio" name="score" value="3" id="score3">3</label>
+            <label for="score4"><input type="radio" name="score" value="4" id="score4">4</label>
+            <label for="score5"><input type="radio" name="score" value="5" id="score5">5</label>
+        </li>
+        <li class="peasy">
+            <label class="txt">楽単度</label>
+            <label for="easy1"><input type="radio" name="easy" value="1" id="easy1" required>1</label>
+            <label for="easy2"><input type="radio" name="easy" value="2" id="easy2">2</label>
+            <label for="easy3"><input type="radio" name="easy" value="3" id="easy3">3</label>
+            <label for="easy4"><input type="radio" name="easy" value="4" id="easy4">4</label>
+            <label for="easy5"><input type="radio" name="easy" value="5" id="easy5">5</label>
+        </li>
+      </ul>
+        <input type="submit" value="投稿">
+    </form>
+    </div>
+</body>
+</html>

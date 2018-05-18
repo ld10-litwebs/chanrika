@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>科目区分</title>
+  <link rel="stylesheet" href="/assets/css/jugyou.css">
+</head>
+
+<header>
+  <a href="/" class="top">トップへ</a>
+  <a href="/post" class="head_post">投稿する</a>
+</header>
+
+<body>
+    <% if @l_search.present? || @t_search.present? || @d_search.present? %>
+    <h1 class="search_word">検索結果 : "<%= @search_word %>"</h1>
+    <% else %>
+    <h1 class="search_word">"<%= @search_word %>" に当てはまる検索結果は見つかりませんでした</h1>
+    <% end %>
+      <% @l_search.each do |lesson| %>
+        <a href="/classes/detail/<%= lesson.id %>" class="lesson_txt">
+          <div class="lesson_top"><h4><%= lesson.lesson_name %></h4></div>
+          <div class="lesson">
+            <p>教員 : <%= lesson.teacher_name %></p>
+            <div class="attendance<%= lesson.attendance %>"><%= lesson.attendance %></div>
+            <div class="testorreport<%= lesson.testorreport %>"><%= lesson.testorreport %></div>
+            <div class="score">
+              <p class="title">得点しやすさ</p>
+              <p class="star">
+              <% if lesson.score == 1 %>
+              ★✩✩✩✩
+              <% elsif lesson.score == 2 %>
+              ★★✩✩✩
+              <% elsif lesson.score == 3 %>
+              ★★★✩✩
+              <% elsif lesson.score == 4 %>
+              ★★★★✩
+              <% elsif lesson.score == 5 %>
+              ★★★★★
+              <% end %>
+              </p>
+            </div>
+            <div class="easy">
+              <p class="title">楽単度</p>
+              <p class="star">
+              <% if lesson.easy == 1 %>
+              ★✩✩✩✩
+              <% elsif lesson.easy == 2 %>
+              ★★✩✩✩
+              <% elsif lesson.easy == 3 %>
+              ★★★✩✩
+              <% elsif lesson.easy == 4 %>
+              ★★★★✩
+              <% elsif lesson.easy == 5 %>
+              ★★★★★
+              <% end %>
+              </p>
+            </div>
+          </div>
+        </a>
+      <% end %>
+      
+      <% @t_search.each do |lesson| %>
+        <a href="/classes/detail/<%= lesson.id %>" class="lesson_txt">
+          <div class="lesson_top"><h4><%= lesson.lesson_name %></h4></div>
+          <div class="lesson">
+            <p>教員 : <%= lesson.teacher_name %></p>
+            <div class="attendance<%= lesson.attendance %>"><%= lesson.attendance %></div>
+            <div class="testorreport<%= lesson.testorreport %>"><%= lesson.testorreport %></div>
+            <div class="score">
+              <p class="title">得点しやすさ</p>
+              <p class="star">
+              <% if lesson.score == 1 %>
+              ★✩✩✩✩
+              <% elsif lesson.score == 2 %>
+              ★★✩✩✩
+              <% elsif lesson.score == 3 %>
+              ★★★✩✩
+              <% elsif lesson.score == 4 %>
+              ★★★★✩
+              <% elsif lesson.score == 5 %>
+              ★★★★★
+              <% end %>
+              </p>
+            </div>
+            <div class="easy">
+              <p class="title">楽単度</p>
+              <p class="star">
+              <% if lesson.easy == 1 %>
+              ★✩✩✩✩
+              <% elsif lesson.easy == 2 %>
+              ★★✩✩✩
+              <% elsif lesson.easy == 3 %>
+              ★★★✩✩
+              <% elsif lesson.easy == 4 %>
+              ★★★★✩
+              <% elsif lesson.easy == 5 %>
+              ★★★★★
+              <% end %>
+              </p>
+            </div>
+          </div>
+        </a>
+      <% end %>
+      
+      <% @d_search.each do |lesson| %>
+        <a href="/classes/detail/<%= lesson.id %>" class="lesson_txt">
+          <div class="lesson_top"><h4><%= lesson.lesson_name %></h4></div>
+          <div class="lesson">
+            <p>教員 : <%= lesson.teacher_name %></p>
+            <div class="attendance<%= lesson.attendance %>"><%= lesson.attendance %></div>
+            <div class="testorreport<%= lesson.testorreport %>"><%= lesson.testorreport %></div>
+            <div class="score">
+              <p class="title">得点しやすさ</p>
+              <p class="star">
+              <% if lesson.score == 1 %>
+              ★✩✩✩✩
+              <% elsif lesson.score == 2 %>
+              ★★✩✩✩
+              <% elsif lesson.score == 3 %>
+              ★★★✩✩
+              <% elsif lesson.score == 4 %>
+              ★★★★✩
+              <% elsif lesson.score == 5 %>
+              ★★★★★
+              <% end %>
+              </p>
+            </div>
+            <div class="easy">
+              <p class="title">楽単度</p>
+              <p class="star">
+              <% if lesson.easy == 1 %>
+              ★✩✩✩✩
+              <% elsif lesson.easy == 2 %>
+              ★★✩✩✩
+              <% elsif lesson.easy == 3 %>
+              ★★★✩✩
+              <% elsif lesson.easy == 4 %>
+              ★★★★✩
+              <% elsif lesson.easy == 5 %>
+              ★★★★★
+              <% end %>
+              </p>
+            </div>
+          </div>
+        </a>
+      <% end %>
+</body>
+</html>

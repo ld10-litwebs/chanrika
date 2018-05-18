@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>時間割</title>
+  <link rel="stylesheet" href="/assets/css/jugyou.css">
+</head>
+
+<header>
+  <div class="search">
+    <form action="/src" method="post">
+      <input type="search" name="search" placeholder="検索"></input>
+  </form>
+  </div>
+  <a href="/" class="top">トップへ</a>
+  <a href="/post" class="head_post">投稿する</a>
+</header>
+
+<body class="body_top">
+  
+  <div class="main">
+     
+    <ul class="main_field">
+        <h4 class="field_d">教養科目群</h4>
+      <% for i in 1..7 %>
+        <li>
+          <!-- <div class="field"> -->
+            <a class="field" href="/classes/<%= Field.find(i).id %>"><%= Field.find(i).name %></a>
+          <!-- </div> -->
+        </li>
+      <% end %>
+    </ul>
+      <br><br><br><br><br><br><br><br>
+    <ul class="main_field">
+      <h4 class="field_d">理学院</h4>
+      <% for i in 8..11 %>
+        <li>
+          <!-- <div class="field"> -->
+            <a class="field" href="/classes/<%= Field.find(i).id %>"><%= Field.find(i).name %></a>
+          <!-- </div> -->
+        </li>
+      <% end %>
+    </ul>
+    <br><br><br><br>
+    <ul class="main_field">
+      <h4 class="field_d">工学院</h4>
+      <% for i in 12..16 %>
+        <li>
+          <!-- <div class="field"> -->
+            <a class="field" href="/classes/<%= Field.find(i).id %>"><%= Field.find(i).name %></a>
+          <!-- </div> -->
+        </li>
+      <% end %>
+    </ul>
+    <br><br><br><br><br><br><br><br>
+    <ul class="main_field">
+      <h4 class="field_d">物質理工学院</h4>
+      <% for i in 17..18 %>
+        <li>
+          <!-- <div class="field"> -->
+            <a class="field" href="/classes/<%= Field.find(i).id %>"><%= Field.find(i).name %></a>
+          <!-- </div> -->
+        </li>
+      <% end %>
+    </ul>
+    <br><br><br><br>
+    <ul class="main_field">
+      <h4 class="field_d">情報理工学院</h4>
+      <% for i in 19..20 %>
+        <li>
+          <!-- <div class="field"> -->
+            <a class="field" href="/classes/<%= Field.find(i).id %>"><%= Field.find(i).name %></a>
+          <!-- </div> -->
+        </li>
+      <% end %>
+    </ul>
+    <br><br><br><br>
+    <ul class="main_field">
+      <h4 class="field_d">生命理工学院</h4>
+      <% for i in 21..21 %>
+        <li>
+          <!-- <div class="field"> -->
+            <a class="field" href="/classes/<%= Field.find(i).id %>"><%= Field.find(i).name %></a>
+          <!-- </div> -->
+        </li>
+      <% end %>
+    </ul>
+    <br><br><br><br>
+    <ul class="main_field">
+      <h4 class="field_d">環境・社会理工学院</h4>
+      <% for i in 22..25 %>
+        <li>
+          <!-- <div class="field"> -->
+            <a class="field" href="/classes/<%= Field.find(i).id %>"><%= Field.find(i).name %></a>
+          <!-- </div> -->
+        </li>
+      <% end %>
+    </ul>
+    <br><br><br><br>
+    <ul class="main_field">
+      <h4 class="field_d">類科目</h4>
+      <% for i in 26..32 %>
+        <li>
+          <!-- <div class="field"> -->
+            <a class="field" href="/classes/<%= Field.find(i).id %>"><%= Field.find(i).name %></a>
+          <!-- </div> -->
+        </li>
+      <% end %>
+    </ul>
+  </div>
+ 
+    
+</body>
+</html>

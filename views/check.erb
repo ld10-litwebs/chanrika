@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>確認画面</title>
+  <link rel="stylesheet" href="/assets/css/jugyou.css">
+</head>
+
+<header>
+  <div class="search">
+    <form action="/src" method="post">
+      <input type="search" name="search" placeholder="検索"></input>
+  </form>
+  </div>
+  <a href="/" class="top">トップへ</a>
+  <a href="/post" class="head_post">投稿する</a>
+</header>
+
+<body>
+    <h1>投稿</h1>
+    <form action="/create" method="post">
+      <div class="check">
+        <label>授業名</label>
+        <p><%= @lesson_name %></p>
+        <label>教員名</label>
+        <p><%= @teacher_name %></p>
+        <label>科目区分</label>
+        <p><%= Field.find(@field_id).name %></p>
+        <label>コメント</label>
+        <p><%= @detail %></p>
+        <label>出席</label>
+        <p><%= @attendance %></p>
+        <label>テスト</label>
+        <p><%= @testorreport %></p>
+        <label>得点しやすさ</label>
+        <p><% if @score == 1 %>
+            ★✩✩✩✩
+            <% elsif @score == 2 %>
+            ★★✩✩✩
+            <% elsif @score == 3 %>
+            ★★★✩✩
+            <% elsif @score == 4 %>
+            ★★★★✩
+            <% elsif @score == 5 %>
+            ★★★★★
+            <% end %>
+        </p>
+        <label>楽単度</label>
+        <p>
+            <% if @easy == 1 %>
+            ★✩✩✩✩
+            <% elsif @easy == 2 %>
+            ★★✩✩✩
+            <% elsif @easy == 3 %>
+            ★★★✩✩
+            <% elsif @easy == 4 %>
+            ★★★★✩
+            <% elsif @easy == 5 %>
+            ★★★★★
+            <% end %>
+        </p>
+        <input type="submit" value="送信">
+      </div>
+    </form>
+</body>
+</html>
